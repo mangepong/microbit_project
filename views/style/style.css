@@ -1,0 +1,48 @@
+html {
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.navbar {
+    width: 50%;
+    padding: 30px;
+}
+
+.navbar ul {
+    list-style: none;
+}
+
+.navbar a:visited a:link {
+    color: black;
+}
+
+.navbar a:hover {
+    border-bottom: 2px solid white;
+}
+
+.navbar a:active {
+    border-bottom: 2px solid white;
+}
+
+.navbar a {
+    color: black;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.navbar li {
+    display: inline-block;
+    padding: 5px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+}
