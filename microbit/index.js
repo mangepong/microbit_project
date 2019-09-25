@@ -4,16 +4,16 @@
 "use strict";
 
 const express = require("express");
+const dom = require("express-dom");
 const router  = express.Router();
 const micro   = require("../src/functions.js");
-
+const sc = require("../src/script.js");
 
 router.get("/", (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-
-    res.render("index", data);
+    res.render("test.html", data);
 });
 
 router.get("/index", (req, res) => {
@@ -41,22 +41,20 @@ router.get("/stats", async (req, res) => {
     res.render("stats", data);
 });
 
-router.get("/makeroom", async (req, res) => {
+
+router.get("/makeroom.html", dom().load(), (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-    res.render("makeroom", data);
+    res.render("makeroom.html", data);
 });
 
-router.get("/room", (req, res) => {
+router.get("/test.html", dom().load(), (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-
-    const x = req.query.x;
-    const y = req.query.y
-    micro.createRoom(x, y);
-    res.render("room", data);
+    res.render("test.html", data);
 });
+
 
 module.exports = router;

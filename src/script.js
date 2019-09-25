@@ -5,6 +5,5 @@ function createRoom(x, y) {
     div.style.background = "grey";
     div.style.color = "white";
     div.style.border.color = "black";
-
     document.getElementById("main").appendChild(div);
 }

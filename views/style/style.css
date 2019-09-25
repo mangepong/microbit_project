@@ -46,3 +46,93 @@ th,
 td {
     padding: 15px;
 }
+
+#micro {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    display: block;
+    touch-action: none;
+    user-select: none;
+}
+
+#micro:active {
+      background-color: rgba(168, 218, 220, 1.00);
+    }
+
+#micro:hover {
+     cursor: pointer;
+     border-width: 20px;
+    }
+
+#room {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: grey;
+    color: white;
+    border: solid;
+    border-color: black;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+#frm1 {
+    max-width: 300px;
+}
+
+.con {
+    width: 200px;
+    display: grid;
+}
+
+#frm1 label{
+	display:block;
+	margin-bottom: 10px;
+}
+#frm1 label > span{
+	float: left;
+	width: 120px;
+	color: black;
+	font-weight: bold;
+	font-size: 13px;
+	text-shadow: 1px 1px 1px #fff;
+}
+
+#frm1 input[type=text] {
+    border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border: 1px solid rgb(89, 89, 89);
+	outline: none;
+	color: black;
+	padding: 5px 8px 5px 8px;
+	box-shadow: inset 1px 1px 4px rgb(89, 89, 89);
+	-moz-box-shadow: inset 1px 1px 4px rgb(89, 89, 89);
+	-webkit-box-shadow: inset 1px 1px 4px rgb(89, 89, 89);
+	background: rgb(89, 89, 89, 0.1);
+	width:50%;
+}
+
+.btn {
+    background: rgb(89, 89, 89, 0.1);
+	border: 1px solid black;
+	padding: 5px 15px 5px 15px;
+	color: black;
+	box-shadow: inset -1px -1px 3px rgb(89, 89, 89);
+	-moz-box-shadow: inset -1px -1px 3px rgb(89, 89, 89);
+	-webkit-box-shadow: inset -1px -1px 3px rgb(89, 89, 89);
+	border-radius: 3px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	font-weight: bold;
+    width: 80px;
+    margin-left: 15px;
+}
