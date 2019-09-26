@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-    res.render("test.html", data);
+    res.render("index", data);
 });
 
 router.get("/index", (req, res) => {
