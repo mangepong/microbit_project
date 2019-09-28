@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Microbit Interface</title>
 <link rel="stylesheet" href="/style/style.css">
+<script src="functions.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -33,9 +34,9 @@
 <div id="container"></div>
 <br>
 
+
 <!-- Create funktion i js -->
 <script>
-
     function myFunction() {
 
       var room = document.createElement("div");
@@ -48,6 +49,13 @@
       room.setAttribute("draggable", false);
       demo.appendChild(room);
       var container = document.querySelector("#room");
+      var info = document.createElement("div");
+      info.id = "info";
+      info.style.width = "100px";
+      info.style.height = "100px";
+      info.style.display = "none";
+      info.style.backgroundColor = "blue";
+      demo.appendChild(info);
     }
 
 
@@ -65,9 +73,19 @@
     function createMicro() {
         var micro = document.createElement("div");
         var room = document.getElementById("room");
+        var count = document.querySelectorAll('#micro').length + 1;
         micro.id = "micro";
+        micro.className = count.toString();
         room.appendChild(micro);
         var dragItem = document.querySelector("#micro");
+        var info = document.getElementById("info");
+        micro.addEventListener("click", function(event) {
+            if (info.style.display == "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        });
     }
 
     function deleteMicro() {
@@ -153,6 +171,8 @@
     function setTranslate(xPos, yPos, el) {
       el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     }
+
+
 
 </script>
 

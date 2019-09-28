@@ -18,19 +18,6 @@ async function showAllData(limit) {
     return res;
 }
 
-
-function createRoom(x, y) {
-    var div = window.document.createElement("div");
-    div.style.width = x.toString() + "px";
-    div.style.height = y.toString() + "px";
-    div.style.background = "grey";
-    div.style.color = "white";
-    div.style.border.color = "black";
-
-    window.document.getElementById("main").appendChild(div);
-}
-
 module.exports = {
-    showAllData: showAllData,
-    createRoom: createRoom
+    showAllData: showAllData
 };
