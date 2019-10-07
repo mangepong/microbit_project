@@ -1,6 +1,6 @@
 {
-    "host":     "localhost",
-    "user":     "user",
-    "password": "pass",
-    "database": "microbit"
+    "host":     "remotemysql.com",
+    "user":     "xInF7OKL5i",
+    "password": "gUDs83QPoS",
+    "database": "xInF7OKL5i"
 }
