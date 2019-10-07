@@ -8,8 +8,11 @@ const dom = require("express-dom");
 const router  = express.Router();
 const micro   = require("../src/functions.js");
 const sc = require("../src/script.js");
+var fs = require("fs");
 
-router.get("/", (req, res) => {
+
+
+router.get("/", async (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };

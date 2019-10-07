@@ -82,6 +82,14 @@ td {
     user-select: none;
 }
 
+#info {
+    color: white;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+    border: solid;
+    border-color: grey;
+}
 
 #frm1 {
     max-width: 300px;

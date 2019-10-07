@@ -24,7 +24,7 @@
 <label for="field2"><span>Y: <input type="text" name="y" placeholder="T.ex: 200"></label>
 </form>
 <button class="btn" onclick="myFunction()">Create Room</button>
-<button class="btn" onclick="deleteRoom()">Undo</button>
+<button class="btn" onclick="deleteRoom()">Delete Room</button>
 </div>
 
 <button class="btn" onclick="createMicro()">Create Microbit</button>
@@ -51,10 +51,7 @@
       var container = document.querySelector("#room");
       var info = document.createElement("div");
       info.id = "info";
-      info.style.width = "100px";
-      info.style.height = "100px";
       info.style.display = "none";
-      info.style.backgroundColor = "blue";
       demo.appendChild(info);
     }
 
@@ -82,6 +79,7 @@
         micro.addEventListener("click", function(event) {
             if (info.style.display == "none") {
                 info.style.display = "block";
+                info.innerHTML = "ID: " + event.target.className;
             } else {
                 info.style.display = "none";
             }
