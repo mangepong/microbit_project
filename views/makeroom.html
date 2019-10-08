@@ -25,10 +25,10 @@
 </form>
 <button class="btn" onclick="myFunction()">Create Room</button>
 <button class="btn" onclick="deleteRoom()">Delete Room</button>
-</div>
-
 <button class="btn" onclick="createMicro()">Create Microbit</button>
 <button class="btn" onclick="deleteMicro()">Delete Microbit</button>
+</div>
+
 
 
 <div id="container"></div>
@@ -76,14 +76,13 @@
         room.appendChild(micro);
         var dragItem = document.querySelector("#micro");
         var info = document.getElementById("info");
-        micro.addEventListener("click", function(event) {
-            if (info.style.display == "none") {
-                info.style.display = "block";
-                info.innerHTML = "ID: " + event.target.className;
-            } else {
-                info.style.display = "none";
-            }
+        micro.addEventListener("mouseover", function(event) {
+            info.style.display = "block";
+            info.innerHTML = "ID: " + event.target.className;
         });
+        micro.addEventListener("mouseout", function(event) {
+            info.style.display = "none";
+        })
     }
 
     function deleteMicro() {

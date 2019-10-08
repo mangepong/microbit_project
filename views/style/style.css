@@ -88,20 +88,20 @@ td {
     height: 100px;
     background-color: grey;
     border: solid;
-    border-color: grey;
+    border-color: black;
 }
 
 #frm1 {
-    max-width: 300px;
+    max-width: 250px;
 }
 
 .con {
-    width: 200px;
-    display: grid;
+    width: 250px;
+    display: block;
 }
 
 #frm1 label{
-	display:block;
+	display: block;
 	margin-bottom: 10px;
 }
 #frm1 label > span{

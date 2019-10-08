@@ -20,12 +20,14 @@
             <th>ID</th>
             <th>Temperature</th>
             <th>Light Condition</th>
+            <th>Timestamp</th>
         </tr>
             <% for (const row of res) { %>
             <tr>
             <td> <%= row.id %> </td>
             <td> <%= row.temp %> </td>
             <td> <%= row.light %> </td>
+            <td> <%= row.time %> </td>
             </tr>
             <% }; %>
     </table>
