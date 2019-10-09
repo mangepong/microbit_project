@@ -52,11 +52,11 @@ router.get("/makeroom.html", dom().load(), (req, res) => {
     res.render("makeroom.html", data);
 });
 
-router.get("/test.html", dom().load(), (req, res) => {
+router.get("/test.php", dom().load(), (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-    res.render("test.html", data);
+    res.render("test.php", data);
 });
 
 

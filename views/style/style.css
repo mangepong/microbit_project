@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+
+
 html {
     width: 100%;
-    font-family: sans-serif;
+    font-family: 'Russo One', sans-serif;
+    background-image: url("background-test.jpg");
 }
 
 .navbar {
@@ -80,15 +84,18 @@ td {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border-width: 10px;
 }
 
 #info {
     color: white;
-    width: 100px;
-    height: 100px;
+    width: 250px;
+    height: 350px;
     background-color: grey;
     border: solid;
     border-color: black;
+    float: right;
+    margin-bottom: 100px;
 }
 
 #frm1 {
@@ -98,19 +105,33 @@ td {
 .con {
     width: 250px;
     display: block;
+    background-color: rgba(41, 63, 123, 0.9);
+    align-items: center;
+    height: 270px;
+}
+
+.con h2 {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 7px;
+}
+
+.con p {
+    text-align: center;
 }
 
 #frm1 label{
 	display: block;
 	margin-bottom: 10px;
+    font-family: 'Russo One', sans-serif;
 }
 #frm1 label > span{
-	float: left;
+	/* float: left; */
 	width: 120px;
 	color: black;
 	font-weight: bold;
 	font-size: 13px;
-	text-shadow: 1px 1px 1px #fff;
+    margin-left: 25px;
 }
 
 #frm1 input[type=text] {
@@ -126,9 +147,12 @@ td {
 	-webkit-box-shadow: inset 1px 1px 4px rgb(89, 89, 89);
 	background: rgb(89, 89, 89, 0.1);
 	width:50%;
+    font-family: 'Russo One', sans-serif;
+    margin-left: 10px;
 }
 
 .btn {
+    font-family: 'Russo One', sans-serif;
     background: rgb(89, 89, 89, 0.1);
 	border: 1px solid black;
 	padding: 5px 15px 5px 15px;
@@ -142,5 +166,6 @@ td {
 	-moz-border-radius: 3px;
 	font-weight: bold;
     width: 80px;
-    margin-left: 15px;
+    margin-left: 25px;
+    left: 50%;
 }
