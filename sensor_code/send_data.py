@@ -15,6 +15,3 @@ while True:
     radio.send(id + " " + str(temp) + " " + str(light))
     #print(id + " " + str(temp) + " " + str(light))
     microbit.sleep(5000)
-
-    if microbit.button_b.get_presses():
-        break

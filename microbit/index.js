@@ -44,7 +44,6 @@ router.get("/stats", async (req, res) => {
     res.render("stats", data);
 });
 
-
 router.get("/makeroom.html", dom().load(), (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
@@ -52,12 +51,7 @@ router.get("/makeroom.html", dom().load(), (req, res) => {
     res.render("makeroom.html", data);
 });
 
-router.get("/test.php", dom().load(), (req, res) => {
-    let data = {
-        title: "Microbit BBC | Project"
-    };
-    res.render("test.php", data);
-});
+
 
 
 module.exports = router;
