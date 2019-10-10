@@ -14,25 +14,25 @@ connection = mysql.connector.connect(host='remotemysql.com',
 
 sql = """INSERT INTO microbitdata (id, temp, light) VALUES (%s, %s, %s)"""
 
-ser = serial.Serial('/dev/ttyACM0', 115200)
+ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
 
-    
+
 
 
 while True:
-    line = ser.read(9)
+    line = ser.read(8)
     output = line.decode("utf-8")
-    print(output.split())
-    val = (output.split())
-    cursor = connection.cursor()
-    cursor.execute(sql, val)
+    if len(output.split()):
+        print(output.split())
+        val = (output.split())
+        cursor = connection.cursor()
+        cursor.execute(sql, val)
+        connection.commit()
 
-    connection.commit()
-    
-    
+
 #with open("data.csv", "a") as csvFile:
 #    writer = csv.writer(csvFile)
 #    writer.writerow(output.split())
-        
+
 #csvFile.close()
 
