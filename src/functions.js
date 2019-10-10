@@ -11,7 +11,7 @@ let db;
 })();
 
 async function showAllData(limit) {
-    let sql = `SELECT id, temp, light, time FROM microbitdata LIMIT ?;`;
+    let sql = `SELECT * FROM microbitdata ORDER BY time DESC LIMIT ?`;
     let res;
 
     res = db.query(sql, [limit]);
