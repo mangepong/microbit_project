@@ -14,4 +14,6 @@ while True:
     light = microbit.display.read_light_level()
     radio.send(id + " " + str(temp) + " " + str(light))
     #print(id + " " + str(temp) + " " + str(light))
+    if microbit.button_a.get_presses():
+        microbit.display.scroll(id)
     microbit.sleep(5000)

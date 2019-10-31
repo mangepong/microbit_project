@@ -37,6 +37,7 @@
 
 <!-- Create funktion i js -->
 <script>
+document.addEventListener("DOMContentLoaded", function() {
     function myFunction() {
 
       var room = document.createElement("div");
@@ -55,12 +56,6 @@
       demo.appendChild(info);
     }
 
-
-</script>
-
-<!-- Delete funktion i js -->
-
-<script>
     function deleteRoom() {
         var room = document.getElementById("room");
         var demo = document.getElementById("container");
@@ -168,6 +163,8 @@
     function setTranslate(xPos, yPos, el) {
       el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
     }
+}, false);
+
 
 
 

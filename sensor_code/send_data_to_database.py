@@ -30,9 +30,3 @@ while True:
         connection.commit()
 
 
-#with open("data.csv", "a") as csvFile:
-#    writer = csv.writer(csvFile)
-#    writer.writerow(output.split())
-
-#csvFile.close()
-

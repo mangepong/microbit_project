@@ -18,6 +18,8 @@ async function showAllData(limit) {
     return res;
 }
 
+
+
 module.exports = {
     showAllData: showAllData
 };

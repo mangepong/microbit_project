@@ -10,11 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-dom": "^5.13.1",
+    "express-session": "^1.16.2",
+    "jsdom": "^15.1.1",
     "mysql": "^2.16.0",
+    "php": "0.0.1",
     "php-node": "0.0.2",
-    "promise-mysql": "^3.3.1"
+    "promise-mysql": "^3.3.1",
+    "sphp": "^0.6.3",
+    "ws": "^7.1.2"
   }
 }

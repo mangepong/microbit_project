@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+<head>
+<meta charset="utf-8">
+<title>Microbit Interface</title>
+<link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index">Startpage</a></li>
+            <li><a href="makeroom">Make a room</a></li>
+            <li><a href="input">Statistics</a></li>
+        </ul>
+    </nav>
+
+
+<div class="con">
+<h2>Make a room</h2>
+<p><i>Tips: 100 = 1m</i></p>
+<form id="frm1">
+<label for="field1"><span>X: <input type="text" name="x" placeholder="T.ex: 600"></label>
+<label for="field2"><span>Y: <input type="text" name="y" placeholder="T.ex: 200"></label>
+</form>
+<button class="btn" onclick="myFunction()">Create Room</button>
+<button class="btn" onclick="deleteRoom()">Delete Room</button>
+<button class="btn" onclick="createMicro()">Create Microbit</button>
+<button class="btn" onclick="deleteMicro()">Delete Microbit</button>
+</div>
+
+
+
+<div id="container"></div>
+<br>
+<div id="<%= JSON.stringify(res[0].id) %>" class='data one'>Temperature: <%= JSON.stringify(res[0].temp) %> <br> Light Condition: <%= JSON.stringify(res[0].light) %></div>
+<div id="<%= JSON.stringify(res[1].id) %>" class='2 data two'>Temperature: <%= JSON.stringify(res[1].temp) %> <br> Light Condition: <%= JSON.stringify(res[1].light) %></div>
+<div id="<%= JSON.stringify(res[2].id) %>" class='3 data three'>Temperature: <%= JSON.stringify(res[2].temp) %> <br> Light Condition: <%= JSON.stringify(res[2].light) %></div>
+<div id="<%= JSON.stringify(res[3].id) %>" class='4 data four'>Temperature: <%= JSON.stringify(res[3].temp) %> <br> Light Condition: <%= JSON.stringify(res[3].light) %></div>
+<div id="<%= JSON.stringify(res[4].id) %>" class='5 data five'>Temperature: <%= JSON.stringify(res[4].temp) %> <br> Light Condition: <%= JSON.stringify(res[4].light) %></div>
+<div id="<%= JSON.stringify(res[5].id) %>" class='6 data sex'>Temperature: <%= JSON.stringify(res[5].temp) %> <br> Light Condition: <%= JSON.stringify(res[5].light) %></div>
+<div id="<%= JSON.stringify(res[6].id) %>" class='7 data seven'>Temperature: <%= JSON.stringify(res[6].temp) %> <br> Light Condition: <%= JSON.stringify(res[6].light) %></div>
+<div id="<%= JSON.stringify(res[7].id) %>" class='8 data eight'>Temperature: <%= JSON.stringify(res[7].temp) %> <br> Light Condition: <%= JSON.stringify(res[7].light) %></div>
+<div id="<%= JSON.stringify(res[8].id) %>" class='9 data nine'>Temperature: <%= JSON.stringify(res[8].temp) %> <br> Light Condition: <%= JSON.stringify(res[8].light) %></div>
+<div id="<%= JSON.stringify(res[9].id) %>" class='10 data ten'>Temperature: <%= JSON.stringify(res[9].temp) %> <br> Light Condition: <%= JSON.stringify(res[9].light) %></div>
+<!-- <div class='data one'>Temperature: <%= JSON.stringify(res[0].temp) %></div>
+<div class='data two'>Temperature: <%= JSON.stringify(res[1].temp) %></div>
+<div class='data three'>Temperature: <%= JSON.stringify(res[2].temp) %></div> -->
+<script>
+function myFunction() {
+      var room = document.createElement("div");
+      var demo = document.getElementById("container");
+      var x = document.getElementById("frm1");
+
+      room.style.width = x.elements[0].value + "px";
+      room.style.height = x.elements[1].value + "px";
+      room.id = "room";
+      room.setAttribute("draggable", false);
+      demo.appendChild(room);
+      var container = document.querySelector("#room");
+      var info = document.createElement("div");
+      info.id = "info";
+      info.style.display = "none";
+      demo.appendChild(info);
+    }
+</script>
+
+<!-- Create funktion i js -->
+<script>
+
+
+    function deleteRoom() {
+        var room = document.getElementById("room");
+        var demo = document.getElementById("container");
+        demo.removeChild(room);
+    }
+
+    function createMicro() {
+        var micro = document.createElement("div");
+        var room = document.getElementById("room");
+        var count = document.querySelectorAll('#micro').length + 1;
+        micro.id = "micro";
+        micro.className = count.toString();
+        room.appendChild(micro);
+        var dragItem = document.querySelector("#micro");
+        var info = document.getElementById("info");
+        micro.addEventListener("mouseover", function(event) {
+            var vardata = document.getElementById(event.target.className)
+            info.style.display = "block";
+            info.innerHTML = "ID: " + event.target.className + "<br>" + vardata.innerHTML;
+        });
+        micro.addEventListener("mouseout", function(event) {
+            info.style.display = "none";
+        })
+    }
+
+    function deleteMicro() {
+        var micro = document.getElementById("micro");
+        var room = document.getElementById("room");
+        room.removeChild(micro);
+    }
+
+    var activeItem = null;
+    var active = false;
+    var currentX;
+    var currentY;
+    var initialX;
+    var initialY;
+    var xOffset = 0;
+    var yOffset = 0;
+
+    container.addEventListener("touchstart", dragStart, false);
+    container.addEventListener("touchend", dragEnd, false);
+    container.addEventListener("touchmove", drag, false);
+
+    container.addEventListener("mousedown", dragStart, false);
+    container.addEventListener("mouseup", dragEnd, false);
+    container.addEventListener("mousemove", drag, false);
+
+    function dragStart(e) {
+
+      if (e.target !== e.currentTarget) {
+        active = true;
+
+        // this is the item we are interacting with
+        activeItem = e.target;
+
+        if (activeItem !== null) {
+          if (!activeItem.xOffset) {
+            activeItem.xOffset = 0;
+          }
+
+          if (!activeItem.yOffset) {
+            activeItem.yOffset = 0;
+          }
+
+          if (e.type === "touchstart") {
+            activeItem.initialX = e.touches[0].clientX - activeItem.xOffset;
+            activeItem.initialY = e.touches[0].clientY - activeItem.yOffset;
+          } else {
+            activeItem.initialX = e.clientX - activeItem.xOffset;
+            activeItem.initialY = e.clientY - activeItem.yOffset;
+          }
+        }
+      }
+    }
+
+    function dragEnd(e) {
+      if (activeItem !== null) {
+        activeItem.initialX = activeItem.currentX;
+        activeItem.initialY = activeItem.currentY;
+      }
+
+      active = false;
+      activeItem = null;
+    }
+
+    function drag(e) {
+      if (active) {
+        if (e.type === "touchmove") {
+          e.preventDefault();
+
+          activeItem.currentX = e.touches[0].clientX - activeItem.initialX;
+          activeItem.currentY = e.touches[0].clientY - activeItem.initialY;
+        } else {
+          activeItem.currentX = e.clientX - activeItem.initialX;
+          activeItem.currentY = e.clientY - activeItem.initialY;
+        }
+
+        activeItem.xOffset = activeItem.currentX;
+        activeItem.yOffset = activeItem.currentY;
+
+        setTranslate(activeItem.currentX, activeItem.currentY, activeItem);
+      }
+    }
+
+    function setTranslate(xPos, yPos, el) {
+      el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+    }
+
+</script>
+
+
+</body>
+</html>

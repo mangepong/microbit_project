@@ -1,7 +1,7 @@
 import radio
 import microbit
 
-
+radio.config(length=251)
 radio.on()
 
 while True:

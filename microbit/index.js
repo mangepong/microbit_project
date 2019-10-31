@@ -9,7 +9,7 @@ const router  = express.Router();
 const micro   = require("../src/functions.js");
 const sc = require("../src/script.js");
 var fs = require("fs");
-
+const jsdom = require("jsdom");
 
 
 router.get("/", async (req, res) => {
@@ -44,14 +44,28 @@ router.get("/stats", async (req, res) => {
     res.render("stats", data);
 });
 
-router.get("/makeroom.html", dom().load(), (req, res) => {
+router.get("/makeroom", async (req, res) => {
     let data = {
         title: "Microbit BBC | Project"
     };
-    res.render("makeroom.html", data);
+    data.res = await micro.showAllData(10);
+    res.render("makeroom", data);
 });
 
+router.get("/test", (req, res) => {
+    let data = {
+        title: "Microbit BBC | Project"
+    };
+    res.render("test.php", data);
+});
 
-
-
+router.get("/example", (req, res) => {
+    let data = {
+        title: "Microbit BBC | Project"
+    };
+    // const jsdom = require("jsdom");
+    // const dom = new jsdom(`<p>Hello world</p>`);
+    // data.res = dom.window.document.querySelector("p").textContent;
+    res.render("example", data);
+});
 module.exports = router;
