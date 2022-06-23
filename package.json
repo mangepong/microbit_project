@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-dom": "^5.13.1",
     "express-session": "^1.16.2",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "mysql": "^2.16.0",
     "php": "0.0.1",
     "php-node": "0.0.2",
